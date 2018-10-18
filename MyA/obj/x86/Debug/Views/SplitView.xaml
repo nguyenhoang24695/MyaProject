@@ -1,0 +1,78 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="MyA.Views.SplitView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyA.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                        >
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <SplitView x:ConnectionId='2' Grid.Column="0" x:Name="PaneSplitView" IsPaneOpen="False"
+            DisplayMode="CompactOverlay"
+            OpenPaneLength="200"
+            CompactPaneLength="45"
+         > 
+            <SplitView.Pane>
+                <StackPanel x:ConnectionId='4' x:Name="MenuPane" Margin="5,50,0,0">
+                    <RadioButton Style="{ThemeResource TextBlockButtonStyle}">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon x:ConnectionId='8' x:Name="TogglePanel" Symbol="GlobalNavigationButton" Margin="0,0,10,0"                          />
+                            <!--<TextBlock Text="Hello" FontSize="24"/>-->
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{ThemeResource TextBlockButtonStyle}" >
+                        <StackPanel x:ConnectionId='7' Orientation="Horizontal"                          >
+                            <SymbolIcon Symbol="Home" Margin="0,0,10,0"/>
+                            <TextBlock Text="Home" FontSize="24"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{ThemeResource TextBlockButtonStyle}">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Audio" Margin="0,0,10,0"/>
+                            <TextBlock Text="My Music" FontSize="24"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{ThemeResource TextBlockButtonStyle}">
+                        <StackPanel x:ConnectionId='5' Orientation="Horizontal"                             > 
+                            <SymbolIcon Symbol="Contact" Margin="0,0,10,0"/>
+                            <TextBlock x:ConnectionId='6' x:Name="AccountName" Text="Account" FontSize="24"/>
+                        </StackPanel>
+                    </RadioButton>
+                </StackPanel>
+
+
+            </SplitView.Pane>
+            
+            <SplitView.Content>
+                <Frame x:ConnectionId='9' x:Name="PageContent"/>
+            </SplitView.Content>
+        </SplitView>
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/> 
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <MediaPlayerElement x:ConnectionId='3'
+                Grid.Column="1"
+             x:Name="mediaPlayer"
+              Source="https://c1-ex-swe.nixcdn.com/NhacCuaTui945/GiacMoChiLaGiacMoSeeSingShare2-HaAnhTuan-5082049.mp3"
+              AreTransportControlsEnabled="True" 
+               />
+            
+        </Grid>
+    </Grid>
+    
+</Page>
+

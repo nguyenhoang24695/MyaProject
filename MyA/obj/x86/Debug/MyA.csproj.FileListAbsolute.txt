@@ -247,3 +247,8 @@ D:\HocTap\dotNet\MyA\MyA\obj\x86\Debug\Views\HomePage.g.cs
 D:\HocTap\dotNet\MyA\MyA\obj\x86\Debug\Views\HomePage.xaml
 D:\HocTap\dotNet\MyA\MyA\obj\x86\Debug\Views\HomePage.xbf
 D:\HocTap\dotNet\MyA\MyA\bin\x86\Debug\Views\HomePage.xbf
+D:\HocTap\dotNet\MyA\MyA\obj\x86\Debug\Views\UserInfomation.g.i.cs
+D:\HocTap\dotNet\MyA\MyA\obj\x86\Debug\Views\UserInfomation.g.cs
+D:\HocTap\dotNet\MyA\MyA\obj\x86\Debug\Views\UserInfomation.xaml
+D:\HocTap\dotNet\MyA\MyA\obj\x86\Debug\Views\UserInfomation.xbf
+D:\HocTap\dotNet\MyA\MyA\bin\x86\Debug\Views\UserInfomation.xbf

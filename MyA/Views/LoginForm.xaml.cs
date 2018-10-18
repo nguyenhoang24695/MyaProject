@@ -1,4 +1,5 @@
 ﻿using MyA.Entity;
+using MyA.Services;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,11 @@ namespace MyA.Views
         {
             this.currentMember = new Member();
             this.InitializeComponent();
+            if(GlobalVariable.userEmail != null && GlobalVariable.userPassword != null)
+            {
+                userEmail.Text = GlobalVariable.userEmail;
+                password.Password = GlobalVariable.userPassword;
+            }
         }
         private void showRegisterForm(object sender, RoutedEventArgs e)
         {
@@ -66,40 +72,64 @@ namespace MyA.Views
             {
                 // save file...
                 Debug.WriteLine(responseContent);
-                // Doc token
-                Token token = JsonConvert.DeserializeObject<Token>(responseContent);
+
 
                 // Luu token
-                StorageFolder folder = ApplicationData.Current.LocalFolder;
-                StorageFile file = await folder.CreateFileAsync("token.txt", CreationCollisionOption.ReplaceExisting);
-                await FileIO.WriteTextAsync(file, responseContent);
+                GlobalHandle.saveToken(responseContent);
+                //save email last user
+                GlobalHandle.saveLastUser(this.currentMember.email);
+                //save passWord if check savebox
+                if (savePassword.IsChecked == true)
+                {
+                    GlobalHandle.savePassWord(this.currentMember.password);
+                }
+                else
+                {
+                    GlobalHandle.deletePassword();
+                }
+                // Next page
                 this.Frame.Navigate(typeof(Views.UserInfomation));
             }
             else
             {
 
                 ErrorList error = JsonConvert.DeserializeObject<ErrorList>(responseContent);
-                Debug.WriteLine(error.error.Count);
-                //if (error != null && error.error.Count > 0)
-                //{
-                //    var messageDialog = new MessageDialog(error.error as string);
-                //    foreach (var key in error.error.Keys)
-                //    {
-                //        var textMessage = this.FindName(key);
-                //        if (textMessage == null)
-                //        {
-                //            continue;
-                //        }
+                Debug.WriteLine(responseContent);
+                if (error != null && error.error.Count > 0)
+                {
+                    var content = "";
+                    foreach (var key in error.error.Keys)
+                    {
+                        //var textMessage = this.FindName(key);
+                        //if (textMessage == null)
+                        //{
+                        //    continue;
+                        //}
+                        content += error.error[key].ToString();
 
-                //        await messageDialog.ShowAsync();
-                //        //TextBlock textBlock = textMessage as TextBlock;
-                //        //textBlock.Text = error.error[key];
-                //        //textBlock.Visibility = Visibility.Visible;
-                //    }
-                //}
+                        
+                        //TextBlock textBlock = textMessage as TextBlock;
+                        //textBlock.Text = error.error[key];
+                        //textBlock.Visibility = Visibility.Visible;
+                    }
+                    var messageDialog = new MessageDialog(content);
+                    await messageDialog.ShowAsync();
+                }
 
             }
 
+        }
+
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            if(await GlobalHandle.checkLastuser() != null)
+            {
+                userEmail.Text = await GlobalHandle.checkLastuser();
+            }
+            if(await GlobalHandle.checkPassword() != null)
+            {
+                password.Password = await GlobalHandle.checkPassword();
+            }
         }
     }
 }

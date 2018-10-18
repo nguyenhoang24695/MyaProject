@@ -38,7 +38,7 @@ namespace MyA.Services
         public static Task<HttpResponseMessage> UserInfomationHandle(Token token)
         {
             HttpClient httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Add("Authorization", "Basic" + token.token);
+            httpClient.DefaultRequestHeaders.Add("Authorization", "Basic " + token.token);
             //var content = new StringContent(JsonConvert.SerializeObject(member), System.Text.Encoding.UTF8, "application/json");
             var response = httpClient.GetAsync(USERINFOMATION_API);
             //var contents = await response.Result.Content.ReadAsStringAsync();

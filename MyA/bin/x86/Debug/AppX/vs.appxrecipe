@@ -31,13 +31,13 @@
     <AppXManifest Include="D:\HocTap\dotNet\MyA\MyA\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-10-16T13:39:51.696</Modified>
+      <Modified>2018-10-17T14:07:42.906</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\HocTap\dotNet\MyA\MyA\bin\x86\Debug\MyA.exe">
       <PackagePath>entrypoint\MyA.exe</PackagePath>
-      <Modified>2018-10-16T13:39:51.360</Modified>
+      <Modified>2018-10-17T14:07:42.575</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hoang Nguyen\.nuget\packages\microsoft.csharp\4.3.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -559,31 +559,35 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\HocTap\dotNet\MyA\MyA\bin\x86\Debug\MyA.xr.xml">
       <PackagePath>MyA.xr.xml</PackagePath>
-      <Modified>2018-10-15T10:11:48.979</Modified>
+      <Modified>2018-10-17T09:56:58.901</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\HocTap\dotNet\MyA\MyA\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2018-10-16T13:39:51.088</Modified>
+      <Modified>2018-10-17T14:07:42.298</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\HocTap\dotNet\MyA\MyA\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2018-10-16T13:39:51.089</Modified>
+      <Modified>2018-10-17T14:07:42.298</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\HocTap\dotNet\MyA\MyA\bin\x86\Debug\Views\HomePage.xbf">
       <PackagePath>Views\HomePage.xbf</PackagePath>
-      <Modified>2018-10-16T13:39:51.089</Modified>
+      <Modified>2018-10-17T14:07:42.298</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\HocTap\dotNet\MyA\MyA\bin\x86\Debug\Views\LoginForm.xbf">
       <PackagePath>Views\LoginForm.xbf</PackagePath>
-      <Modified>2018-10-16T13:39:51.089</Modified>
+      <Modified>2018-10-17T14:07:42.298</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\HocTap\dotNet\MyA\MyA\bin\x86\Debug\Views\RegisterForm.xbf">
       <PackagePath>Views\RegisterForm.xbf</PackagePath>
-      <Modified>2018-10-16T13:39:51.086</Modified>
+      <Modified>2018-10-17T14:07:42.289</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\HocTap\dotNet\MyA\MyA\bin\x86\Debug\Views\SplitView.xbf">
       <PackagePath>Views\SplitView.xbf</PackagePath>
-      <Modified>2018-10-16T13:39:51.089</Modified>
+      <Modified>2018-10-17T14:07:42.299</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\HocTap\dotNet\MyA\MyA\bin\x86\Debug\Views\UserInfomation.xbf">
+      <PackagePath>Views\UserInfomation.xbf</PackagePath>
+      <Modified>2018-10-17T14:07:42.298</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -592,11 +596,11 @@
     <AppxPackagedFile Include="D:\HocTap\dotNet\MyA\MyA\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-10-16T12:40:35.371</Modified>
+      <Modified>2018-10-17T09:50:27.284</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\HocTap\dotNet\MyA\MyA\bin\x86\Debug\Core\MyA.exe">
       <PackagePath>MyA.exe</PackagePath>
-      <Modified>2018-10-16T13:39:51.694</Modified>
+      <Modified>2018-10-17T14:07:42.904</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

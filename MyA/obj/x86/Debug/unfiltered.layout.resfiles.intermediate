@@ -12,5 +12,6 @@ Views\HomePage.xbf
 Views\LoginForm.xbf
 Views\RegisterForm.xbf
 Views\SplitView.xbf
+Views\UserInfomation.xbf
 Properties\Default.rd.xml
 WinMetadata\Windows.winmd

@@ -6,9 +6,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Loaded="Page_Loaded">
 
-    <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0">
+    <StackPanel Orientation="Vertical"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0">
         <Grid Margin="0,10,0,0" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -48,8 +49,8 @@
             </StackPanel>
         </Grid>
 
-        
-        <HyperlinkButton Margin="0,0,0,0" HorizontalAlignment="Right" Content="Chưa có tài khoản?" Click="showRegisterForm" VerticalAlignment="Top" />
+        <CheckBox x:Name="savePassword" Content="Lưu mật khẩu" HorizontalAlignment="Left" Margin="0,10,0,0"/>
+        <HyperlinkButton Margin="0,0,0,0" HorizontalAlignment="Right" Content="Chưa có tài khoản?" Click="showRegisterForm" />
     </StackPanel>
 </Page>
  

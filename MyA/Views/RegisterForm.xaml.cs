@@ -1,4 +1,5 @@
 ﻿using MyA.Entity;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -52,17 +53,42 @@ namespace MyA.Views
             registerMember.phone = phone.Text;
             registerMember.avatar = ImageUrl.Text;
             var data = Services.APIHandle.RegisterHandle(registerMember);
-            if(data.Result.StatusCode == HttpStatusCode.Created )
+            var responseContent = data.Result.Content.ReadAsStringAsync().Result;
+            if (data.Result.StatusCode == HttpStatusCode.Created )
             {
                 Debug.WriteLine(data.Result.Content.ReadAsStringAsync().Result);
                 var messageDialog = new MessageDialog("Đăng ký thành công");
                 await messageDialog.ShowAsync();
+                GlobalVariable.userEmail = registerMember.email;
+                GlobalVariable.userPassword = registerMember.password;
                 this.Frame.GoBack();
+                
             }
             else
             {
-                var messageDialog = new MessageDialog("Lỗi: " + data.Result.Content.ReadAsStringAsync().Result);
-                await messageDialog.ShowAsync();                
+                ErrorList error = JsonConvert.DeserializeObject<ErrorList>(responseContent);
+                Debug.WriteLine(responseContent);
+                if (error != null && error.error.Count > 0)
+                {
+                    var content = "";
+                    foreach (var key in error.error.Keys)
+                    {
+                        //var textMessage = this.FindName(key);
+                        //if (textMessage == null)
+                        //{
+                        //    continue;
+                        //}
+                        content += error.error[key].ToString();
+                        content += "\n";
+
+
+                        //TextBlock textBlock = textMessage as TextBlock;
+                        //textBlock.Text = error.error[key];
+                        //textBlock.Visibility = Visibility.Visible;
+                    }
+                    var messageDialog = new MessageDialog(content);
+                    await messageDialog.ShowAsync();
+                }
             }
             
             
@@ -119,8 +145,7 @@ namespace MyA.Views
                 Uri u = new Uri(reader2.ReadToEnd(), UriKind.Absolute);
                 Debug.WriteLine(u.AbsoluteUri);
                 ImageUrl.Text = u.AbsoluteUri;                
-                MyAvatar.Source = new BitmapImage(u);
-                this.registerMember.avatar = ImageUrl.Text;
+                MyAvatar.Source = new BitmapImage(u);                
             }
             catch (Exception ex)
             {

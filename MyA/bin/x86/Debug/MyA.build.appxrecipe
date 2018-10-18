@@ -439,6 +439,9 @@
     <AppxPackagedFile Include="D:\HocTap\dotNet\MyA\MyA\bin\x86\Debug\Views\SplitView.xbf">
       <PackagePath>Views\SplitView.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\HocTap\dotNet\MyA\MyA\bin\x86\Debug\Views\UserInfomation.xbf">
+      <PackagePath>Views\UserInfomation.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>

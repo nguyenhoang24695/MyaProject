@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyA.Services;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -33,13 +34,26 @@ namespace MyA.Views
             PaneSplitView.IsPaneOpen = !this.PaneSplitView.IsPaneOpen;            
         }
 
-        private void ShowLoginFormHandle(object sender, TappedRoutedEventArgs e)
+        private async void ShowLoginFormHandle(object sender, TappedRoutedEventArgs e)
         {
-            PageContent.Navigate(typeof(Views.LoginForm));
+            if(await GlobalHandle.checkToken() != null)
+            {
+                PageContent.Navigate(typeof(Views.UserInfomation));
+            }
+            else
+            {
+                PageContent.Navigate(typeof(Views.LoginForm));
+            }
+            
         }
         private void ShowHomePageForm(object sender, TappedRoutedEventArgs e)
         {
             PageContent.Navigate(typeof(Views.HomePage));
+        }
+
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
