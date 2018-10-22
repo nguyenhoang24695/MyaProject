@@ -7,72 +7,99 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-                        >
+                        
+    >
 
-
-    <Grid>
+    <Grid x:ConnectionId='2' x:Name="Hung">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <SplitView x:ConnectionId='2' Grid.Column="0" x:Name="PaneSplitView" IsPaneOpen="False"
+        <SplitView x:ConnectionId='3' Grid.Column="0" x:Name="PaneSplitView" IsPaneOpen="False"
             DisplayMode="CompactOverlay"
-            OpenPaneLength="200"
-            CompactPaneLength="45"
-         > 
+            OpenPaneLength ="250"
+            CompactPaneLength="44"
+         >
             <SplitView.Pane>
-                <StackPanel x:ConnectionId='4' x:Name="MenuPane" Margin="5,50,0,0">
-                    <RadioButton Style="{ThemeResource TextBlockButtonStyle}">
+                <RelativePanel x:ConnectionId='7' x:Name="MenuPane" Margin="3,50,0,0">
+                    <RadioButton x:ConnectionId='8' x:Name="toggleLabel" Style="{ThemeResource TextBlockButtonStyle}">
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon x:ConnectionId='8' x:Name="TogglePanel" Symbol="GlobalNavigationButton" Margin="0,0,10,0"                          />
+                            <SymbolIcon x:ConnectionId='23' x:Name="TogglePanel" Symbol="GlobalNavigationButton" Margin="0,0,15,0"                          />
                             <!--<TextBlock Text="Hello" FontSize="24"/>-->
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton Style="{ThemeResource TextBlockButtonStyle}" >
-                        <StackPanel x:ConnectionId='7' Orientation="Horizontal"                          >
-                            <SymbolIcon Symbol="Home" Margin="0,0,10,0"/>
+                    <RadioButton x:ConnectionId='9' x:Name="homeLabel" RelativePanel.Below="toggleLabel" Style="{ThemeResource TextBlockButtonStyle}" >
+                        <StackPanel x:ConnectionId='21' Orientation="Horizontal"                          >
+                            <SymbolIcon x:ConnectionId='22' x:Name="HomeSymbol" Symbol="Home" Margin="0,0,15,0"/>
                             <TextBlock Text="Home" FontSize="24"/>
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton Style="{ThemeResource TextBlockButtonStyle}">
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Audio" Margin="0,0,10,0"/>
+                    <RadioButton x:ConnectionId='10' x:Name="musicLabel" RelativePanel.Below="homeLabel" Style="{ThemeResource TextBlockButtonStyle}">
+                        <StackPanel x:ConnectionId='19' Orientation="Horizontal"                             >
+                            <SymbolIcon x:ConnectionId='20' x:Name="MusicSymbol" Symbol="Audio" Margin="0,0,15,0"/>
                             <TextBlock Text="My Music" FontSize="24"/>
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton Style="{ThemeResource TextBlockButtonStyle}">
-                        <StackPanel x:ConnectionId='5' Orientation="Horizontal"                             > 
-                            <SymbolIcon Symbol="Contact" Margin="0,0,10,0"/>
-                            <TextBlock x:ConnectionId='6' x:Name="AccountName" Text="Account" FontSize="24"/>
+                    <RadioButton x:ConnectionId='11' x:Name="accountLabel" RelativePanel.Below="musicLabel"  Style="{ThemeResource TextBlockButtonStyle}">
+                        <StackPanel x:ConnectionId='16'   Orientation="Horizontal"                             >
+                            <SymbolIcon x:ConnectionId='17' x:Name="AccountSymbol" Symbol="Contact" Margin="0,0,15,0"/>
+                            <TextBlock x:ConnectionId='18' x:Name="AccountName" Text="Account" FontSize="24"/>
                         </StackPanel>
                     </RadioButton>
-                </StackPanel>
+                    <RadioButton x:ConnectionId='12' Visibility="Visible" x:Name="signOutLabel" RelativePanel.AlignBottomWithPanel="True" VerticalAlignment="Bottom"  Style="{ThemeResource TextBlockButtonStyle}">
+                        <StackPanel x:ConnectionId='13'  Orientation="Horizontal"                      >
+                            <SymbolIcon x:ConnectionId='14' x:Name="SignOutSymbol" Symbol="NewWindow" Margin="0,0,15,0"/>
+                            <TextBlock x:ConnectionId='15'  x:Name="SignOut" Text="SignOut" FontSize="24"/>
+                        </StackPanel>
+                    </RadioButton>
+                </RelativePanel>
 
 
             </SplitView.Pane>
-            
+
             <SplitView.Content>
-                <Frame x:ConnectionId='9' x:Name="PageContent"/>
+                <Frame x:ConnectionId='24' x:Name="PageContent"/>
             </SplitView.Content>
         </SplitView>
         <Grid Grid.Row="1" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/> 
+                <ColumnDefinition Width="27*"/>
+                <ColumnDefinition Width="57*"/>
+                <ColumnDefinition Width="172*"/>
+
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <MediaPlayerElement x:ConnectionId='3'
-                Grid.Column="1"
+            <TextBlock x:ConnectionId='4' Grid.Column="1" Text="" x:Name="titleSong"/>
+            <Ellipse Grid.Column="0" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
+                <Ellipse.Fill>
+                    <ImageBrush x:ConnectionId='6'  x:Name="imageSong"  Stretch="UniformToFill"/>
+                </Ellipse.Fill>
+            </Ellipse>
+            <MediaPlayerElement x:ConnectionId='5'
+                Grid.Column="2"
              x:Name="mediaPlayer"
               Source="https://c1-ex-swe.nixcdn.com/NhacCuaTui945/GiacMoChiLaGiacMoSeeSingShare2-HaAnhTuan-5082049.mp3"
-              AreTransportControlsEnabled="True" 
-               />
-            
+              AreTransportControlsEnabled="True"   
+                Background="Aqua" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"                
+               >
+                <MediaPlayerElement.TransportControls>
+                    <MediaTransportControls 
+                     IsSkipBackwardButtonVisible="True"
+                        IsSkipForwardButtonVisible="True"
+                        IsSkipBackwardEnabled="True"
+                        IsSkipForwardEnabled="True"
+                        IsNextTrackButtonVisible="True"
+                        IsFastRewindButtonVisible="True"
+                        IsFastRewindEnabled="True"
+                        />
+                </MediaPlayerElement.TransportControls>
+
+            </MediaPlayerElement>
+
         </Grid>
     </Grid>
-    
+
 </Page>
 

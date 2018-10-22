@@ -1,4 +1,5 @@
 ﻿using MyA.Entity;
+using MyA.Services;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -29,12 +30,14 @@ namespace MyA.Views
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class RegisterForm : Page
-    {
+    {        
+        
         private Member registerMember;
         private static StorageFile file;
         private static string UploadUrl;
         public RegisterForm()
         {
+            Services.SymbolColorChange.changeColorSymbol("AccountSymbol");
             GetUploadUrl();
             this.registerMember = new Member();
             this.InitializeComponent();
@@ -59,9 +62,19 @@ namespace MyA.Views
                 Debug.WriteLine(data.Result.Content.ReadAsStringAsync().Result);
                 var messageDialog = new MessageDialog("Đăng ký thành công");
                 await messageDialog.ShowAsync();
-                GlobalVariable.userEmail = registerMember.email;
-                GlobalVariable.userPassword = registerMember.password;
-                this.Frame.GoBack();
+                //Auto Login
+                var loginData = Services.APIHandle.LoginHandle(registerMember).Result;
+                var loginResponseContent = Services.APIHandle.LoginHandle(registerMember).Result.Content.ReadAsStringAsync().Result;
+                // Luu token
+                GlobalHandle.saveToken(loginResponseContent);
+                //save email last user
+                GlobalHandle.saveLastUser(registerMember.email);
+                //Change account Name
+                Services.GlobalHandle.changeAccountName();
+                //Show Login Button
+                Services.GlobalHandle.ShowSignOutButton();
+                //Navigate Frame
+                this.Frame.Navigate(typeof(Views.HomePage));
                 
             }
             else
@@ -192,6 +205,11 @@ namespace MyA.Views
             RadioButton radioGender = sender as RadioButton;
             this.registerMember.gender = Int32.Parse(radioGender.Tag.ToString());
             Debug.WriteLine(this.registerMember.gender);
+        }
+
+        private void ReturnLoginForm(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Views.LoginForm));
         }
     }
 }

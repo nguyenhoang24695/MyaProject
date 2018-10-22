@@ -10,31 +10,32 @@
 
 namespace MyA.Views
 {
-    partial class HomePage : 
-        global::Windows.UI.Xaml.Controls.Page, 
-        global::Windows.UI.Xaml.Markup.IComponentConnector,
-        global::Windows.UI.Xaml.Markup.IComponentConnector2
+    partial class HomePage : global::Windows.UI.Xaml.Controls.Page
     {
-        /// <summary>
-        /// Connect()
-        /// </summary>
+
+
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 10.0.17.0")]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public void Connect(int connectionId, object target)
-        {
-            this._contentLoaded = true;
-        }
+        private bool _contentLoaded;
 
         /// <summary>
-        /// GetBindingConnector(int connectionId, object target)
+        /// InitializeComponent()
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 10.0.17.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::Windows.UI.Xaml.Markup.IComponentConnector GetBindingConnector(int connectionId, object target)
+        public void InitializeComponent()
         {
-            global::Windows.UI.Xaml.Markup.IComponentConnector returnValue = null;
-            return returnValue;
+            if (_contentLoaded)
+                return;
+
+            _contentLoaded = true;
+
+            global::System.Uri resourceLocator = new global::System.Uri("ms-appx:///Views/HomePage.xaml");
+            global::Windows.UI.Xaml.Application.LoadComponent(this, resourceLocator, global::Windows.UI.Xaml.Controls.Primitives.ComponentResourceLocation.Application);
         }
+
+        partial void UnloadObject(global::Windows.UI.Xaml.DependencyObject unloadableObject);
+
     }
 }
+
 

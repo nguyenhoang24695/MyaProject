@@ -23,8 +23,9 @@ namespace MyA.Views
     public sealed partial class HomePage : Page
     {
         public HomePage()
-        {
+        {            
             this.InitializeComponent();
+            Services.SymbolColorChange.changeColorSymbol("HomeSymbol");
         }
     }
 }

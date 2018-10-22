@@ -252,3 +252,8 @@ D:\HocTap\dotNet\MyA\MyA\obj\x86\Debug\Views\UserInfomation.g.cs
 D:\HocTap\dotNet\MyA\MyA\obj\x86\Debug\Views\UserInfomation.xaml
 D:\HocTap\dotNet\MyA\MyA\obj\x86\Debug\Views\UserInfomation.xbf
 D:\HocTap\dotNet\MyA\MyA\bin\x86\Debug\Views\UserInfomation.xbf
+D:\HocTap\dotNet\MyA\MyA\obj\x86\Debug\Views\ListSong.g.i.cs
+D:\HocTap\dotNet\MyA\MyA\obj\x86\Debug\Views\ListSong.g.cs
+D:\HocTap\dotNet\MyA\MyA\obj\x86\Debug\Views\ListSong.xaml
+D:\HocTap\dotNet\MyA\MyA\obj\x86\Debug\Views\ListSong.xbf
+D:\HocTap\dotNet\MyA\MyA\bin\x86\Debug\Views\ListSong.xbf

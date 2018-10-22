@@ -8,7 +8,6 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     Loaded="Page_Loaded">
-
     <ScrollViewer>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -79,9 +78,9 @@
                     </Grid.RowDefinitions>
                     <SymbolIcon Grid.Column="0" Symbol="Contact" Margin="0,0,10,0"/>
                     <StackPanel Grid.Column="1" Orientation="Horizontal">
-                        <RadioButton Content="Male" Tag="1" Checked="Select_Gender"/>
-                        <RadioButton Content="Female" Tag="0" Checked="Select_Gender"/>
-                        <RadioButton Content="Other" Tag="2" Checked="Select_Gender" IsChecked="True"/>
+                        <RadioButton x:Name="Gender_Male" Content="Male" Tag="1" Checked="Select_Gender"/>
+                        <RadioButton x:Name="Gender_Female" Content="Female" Tag="0" Checked="Select_Gender"/>
+                        <RadioButton x:Name="Gender_Other" Content="Other" Tag="2" Checked="Select_Gender" />
                     </StackPanel>
                 </Grid>
                 <Grid Margin="0,10,0,0" >

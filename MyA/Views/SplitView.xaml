@@ -7,71 +7,98 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    Loaded="Page_Loaded">
+    Loaded="Page_Loaded"
+    >
 
-
-    <Grid>
+    <Grid x:Name="Hung">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <SplitView Grid.Column="0" x:Name="PaneSplitView" IsPaneOpen="False"
             DisplayMode="CompactOverlay"
-            OpenPaneLength="200"
-            CompactPaneLength="45"
-         > 
+            OpenPaneLength ="250"
+            CompactPaneLength="44"
+         >
             <SplitView.Pane>
-                <StackPanel x:Name="MenuPane" Margin="5,50,0,0">
-                    <RadioButton Style="{ThemeResource TextBlockButtonStyle}">
+                <RelativePanel x:Name="MenuPane" Margin="3,50,0,0">
+                    <RadioButton x:Name="toggleLabel" Style="{ThemeResource TextBlockButtonStyle}">
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon x:Name="TogglePanel" Symbol="GlobalNavigationButton" Margin="0,0,10,0" Tapped="TogglePanelEvent"/>
+                            <SymbolIcon x:Name="TogglePanel" Symbol="GlobalNavigationButton" Margin="0,0,15,0" Tapped="TogglePanelEvent"/>
                             <!--<TextBlock Text="Hello" FontSize="24"/>-->
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton Style="{ThemeResource TextBlockButtonStyle}" >
+                    <RadioButton x:Name="homeLabel" RelativePanel.Below="toggleLabel" Style="{ThemeResource TextBlockButtonStyle}" >
                         <StackPanel Orientation="Horizontal" Tapped="ShowHomePageForm">
-                            <SymbolIcon Symbol="Home" Margin="0,0,10,0"/>
+                            <SymbolIcon x:Name="HomeSymbol" Symbol="Home" Margin="0,0,15,0"/>
                             <TextBlock Text="Home" FontSize="24"/>
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton Style="{ThemeResource TextBlockButtonStyle}">
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Audio" Margin="0,0,10,0"/>
+                    <RadioButton x:Name="musicLabel" RelativePanel.Below="homeLabel" Style="{ThemeResource TextBlockButtonStyle}">
+                        <StackPanel Orientation="Horizontal" Tapped="ShowListSonngHandle">
+                            <SymbolIcon x:Name="MusicSymbol" Symbol="Audio" Margin="0,0,15,0"/>
                             <TextBlock Text="My Music" FontSize="24"/>
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton Style="{ThemeResource TextBlockButtonStyle}">
-                        <StackPanel Orientation="Horizontal" Tapped="ShowLoginFormHandle"> 
-                            <SymbolIcon Symbol="Contact" Margin="0,0,10,0"/>
+                    <RadioButton x:Name="accountLabel" RelativePanel.Below="musicLabel"  Style="{ThemeResource TextBlockButtonStyle}">
+                        <StackPanel   Orientation="Horizontal" Tapped="ShowLoginFormHandle">
+                            <SymbolIcon x:Name="AccountSymbol" Symbol="Contact" Margin="0,0,15,0"/>
                             <TextBlock x:Name="AccountName" Text="Account" FontSize="24"/>
                         </StackPanel>
                     </RadioButton>
-                </StackPanel>
+                    <RadioButton Visibility="Visible" x:Name="signOutLabel" RelativePanel.AlignBottomWithPanel="True" VerticalAlignment="Bottom"  Style="{ThemeResource TextBlockButtonStyle}">
+                        <StackPanel  Orientation="Horizontal" Tapped="LogoutHandle">
+                            <SymbolIcon x:Name="SignOutSymbol" Symbol="NewWindow" Margin="0,0,15,0"/>
+                            <TextBlock  x:Name="SignOut" Text="SignOut" FontSize="24"/>
+                        </StackPanel>
+                    </RadioButton>
+                </RelativePanel>
 
 
             </SplitView.Pane>
-            
+
             <SplitView.Content>
                 <Frame x:Name="PageContent"/>
             </SplitView.Content>
         </SplitView>
         <Grid Grid.Row="1" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/> 
+                <ColumnDefinition Width="27*"/>
+                <ColumnDefinition Width="57*"/>
+                <ColumnDefinition Width="172*"/>
+
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+            <TextBlock Grid.Column="1" Text="" x:Name="titleSong"/>
+            <Ellipse Grid.Column="0" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
+                <Ellipse.Fill>
+                    <ImageBrush  x:Name="imageSong"  Stretch="UniformToFill"/>
+                </Ellipse.Fill>
+            </Ellipse>
             <MediaPlayerElement
-                Grid.Column="1"
+                Grid.Column="2"
              x:Name="mediaPlayer"
               Source="https://c1-ex-swe.nixcdn.com/NhacCuaTui945/GiacMoChiLaGiacMoSeeSingShare2-HaAnhTuan-5082049.mp3"
-              AreTransportControlsEnabled="True" 
-               />
-            
+              AreTransportControlsEnabled="True"   
+                Background="Aqua" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"                
+               >
+                <MediaPlayerElement.TransportControls>
+                    <MediaTransportControls 
+                     IsSkipBackwardButtonVisible="True"
+                        IsSkipForwardButtonVisible="True"
+                        IsSkipBackwardEnabled="True"
+                        IsSkipForwardEnabled="True"
+                        IsNextTrackButtonVisible="True"
+                        IsFastRewindButtonVisible="True"
+                        IsFastRewindEnabled="True"
+                        />
+                </MediaPlayerElement.TransportControls>
+
+            </MediaPlayerElement>
+
         </Grid>
     </Grid>
-    
+
 </Page>

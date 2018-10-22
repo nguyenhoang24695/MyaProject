@@ -28,7 +28,7 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <SymbolIcon Grid.Column="0" Symbol="Contact" Margin="0,0,10,0"/>
-                    <TextBox x:ConnectionId='15' x:Name="lastName" Grid.Column="1" PlaceholderText="Nhập Họ"/>
+                    <TextBox x:ConnectionId='16' x:Name="lastName" Grid.Column="1" PlaceholderText="Nhập Họ"/>
                 </Grid>
                 <Grid Margin="0,10,0,0" >
                     <Grid.ColumnDefinitions>
@@ -40,7 +40,7 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <SymbolIcon Grid.Column="0" Symbol="Contact" Margin="0,0,10,0"/>
-                    <TextBox x:ConnectionId='14' x:Name="firstName" Grid.Column="1" PlaceholderText="Nhập Tên"/>
+                    <TextBox x:ConnectionId='15' x:Name="firstName" Grid.Column="1" PlaceholderText="Nhập Tên"/>
                 </Grid>
                 <Grid Margin="0,10,0,0" >
                     <Grid.ColumnDefinitions>
@@ -52,7 +52,7 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <SymbolIcon Grid.Column="0" Symbol="Contact" Margin="0,0,10,0"/>
-                    <TextBox x:ConnectionId='13' x:Name="address" Grid.Column="1" PlaceholderText="Nhập địa chỉ"/>
+                    <TextBox x:ConnectionId='14' x:Name="address" Grid.Column="1" PlaceholderText="Nhập địa chỉ"/>
                 </Grid>
                 <Grid Margin="0,10,0,0" >
                     <Grid.ColumnDefinitions>
@@ -64,7 +64,7 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <SymbolIcon Grid.Column="0" Symbol="Contact" Margin="0,0,10,0"/>
-                    <TextBox x:ConnectionId='12' x:Name="phone" Grid.Column="1" PlaceholderText="Nhập Số điện thoại"/>
+                    <TextBox x:ConnectionId='13' x:Name="phone" Grid.Column="1" PlaceholderText="Nhập Số điện thoại"/>
                 </Grid>
                 <Grid Margin="0,10,0,0" >
                     <Grid.ColumnDefinitions>
@@ -77,9 +77,9 @@
                     </Grid.RowDefinitions>
                     <SymbolIcon Grid.Column="0" Symbol="Contact" Margin="0,0,10,0"/>
                     <StackPanel Grid.Column="1" Orientation="Horizontal">
-                        <RadioButton x:ConnectionId='9' Content="Male" Tag="1"                        />
-                        <RadioButton x:ConnectionId='10' Content="Female" Tag="0"                        />
-                        <RadioButton x:ConnectionId='11' Content="Other" Tag="2"                         IsChecked="True"/>
+                        <RadioButton x:ConnectionId='10' Content="Male" Tag="1"                        />
+                        <RadioButton x:ConnectionId='11' Content="Female" Tag="0"                        />
+                        <RadioButton x:ConnectionId='12' Content="Other" Tag="2"                         IsChecked="True"/>
                     </StackPanel>
                 </Grid>
                 <Grid Margin="0,10,0,0" >
@@ -92,7 +92,7 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <SymbolIcon Grid.Column="0" Symbol="Contact" Margin="0,0,10,0"/>
-                    <CalendarDatePicker x:ConnectionId='8' Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="370"                               />
+                    <CalendarDatePicker x:ConnectionId='9' Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="370"                               />
                 </Grid>
                 <Grid Margin="0,10,0,0" >
                     <Grid.ColumnDefinitions>
@@ -104,7 +104,7 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <SymbolIcon Grid.Column="0" Symbol="Contact" Margin="0,0,10,0"/>
-                    <TextBox x:ConnectionId='7' x:Name="email" Grid.Column="1" PlaceholderText="Nhập Email"/>
+                    <TextBox x:ConnectionId='8' x:Name="email" Grid.Column="1" PlaceholderText="Nhập Email"/>
                 </Grid>
                 <Grid Margin="0,10,0,0">
                     <Grid.ColumnDefinitions>
@@ -116,7 +116,7 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <SymbolIcon Grid.Column="0" Symbol="Forward" Margin="0,0,10,0"/>
-                    <PasswordBox x:ConnectionId='6' x:Name="password" Grid.Column="1" PlaceholderText="Mật Khẩu" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                    <PasswordBox x:ConnectionId='7' x:Name="password" Grid.Column="1" PlaceholderText="Mật Khẩu" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                 </Grid>                
             </StackPanel>
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1">
@@ -130,7 +130,7 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <SymbolIcon Grid.Column="0" Symbol="Forward" Margin="0,0,10,0"/>
-                    <TextBox x:ConnectionId='5' Grid.Column="1" x:Name="ImageUrl" PlaceholderText="Đường dẫn ảnh đại diện" HorizontalAlignment="Center" Text="" VerticalAlignment="Center" Width="370"/>
+                    <TextBox x:ConnectionId='6' Grid.Column="1" x:Name="ImageUrl" PlaceholderText="Đường dẫn ảnh đại diện" HorizontalAlignment="Center" Text="" VerticalAlignment="Center" Width="370"/>
 
                 </Grid>
                 <Grid Margin="0,10,0,0" >
@@ -142,12 +142,13 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <Image x:ConnectionId='3' Grid.Column="0" x:Name="MyAvatar" Width="250" Height="250" HorizontalAlignment="Left"/>
+                    <Image x:ConnectionId='4' Grid.Column="0" x:Name="MyAvatar" Width="250" Height="250" HorizontalAlignment="Left"/>
 
-                    <Button x:ConnectionId='4' Grid.Column="1"  Content="Capture Your Photo" Margin="0, 30, 0, 0"                       />
+                    <Button x:ConnectionId='5' Grid.Column="1"  Content="Capture Your Photo" Margin="0, 30, 0, 0"                       />
                 </Grid>
             </StackPanel>
-            <Button x:ConnectionId='2'  Grid.Row="1" Grid.ColumnSpan="2" Margin="0,20,0,30" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Đăng ký"                       />
+            <Button x:ConnectionId='2'  Grid.Row="1" Grid.Column="0" Margin="0,20,0,30" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Đăng ký"                       />
+            <HyperlinkButton x:ConnectionId='3'  Grid.Row="1" Grid.Column="1" Margin="0,20,0,30" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Quay lại đăng nhập"                        />
         </Grid>
         
     </ScrollViewer>

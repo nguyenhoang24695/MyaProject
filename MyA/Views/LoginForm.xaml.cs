@@ -1,6 +1,7 @@
 ﻿using MyA.Entity;
 using MyA.Services;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -34,14 +35,13 @@ namespace MyA.Views
         private Member currentMember;
         public LoginForm()
         {
+            Services.SymbolColorChange.changeColorSymbol("AccountSymbol");
             this.currentMember = new Member();
-            this.InitializeComponent();
-            if(GlobalVariable.userEmail != null && GlobalVariable.userPassword != null)
-            {
-                userEmail.Text = GlobalVariable.userEmail;
-                password.Password = GlobalVariable.userPassword;
-            }
+            this.InitializeComponent();            
+            //Debug.WriteLine()
+            
         }
+
         private void showRegisterForm(object sender, RoutedEventArgs e)
         {
             //CoreApplicationView newView = CoreApplication.CreateNewView();
@@ -70,10 +70,11 @@ namespace MyA.Views
             //Debug.WriteLine(data.Result.Content.ReadAsStringAsync().Result);
             if (data.StatusCode == System.Net.HttpStatusCode.Created)
             {
+                
                 // save file...
                 Debug.WriteLine(responseContent);
 
-
+                
                 // Luu token
                 GlobalHandle.saveToken(responseContent);
                 //save email last user
@@ -85,8 +86,16 @@ namespace MyA.Views
                 }
                 else
                 {
-                    GlobalHandle.deletePassword();
+                    if(await GlobalHandle.checkPassword() != null)
+                    {
+                        GlobalHandle.deletePassword();
+                    }
+                    
                 }
+                //Change Account Name in splitView
+                Services.GlobalHandle.changeAccountName();
+                Services.GlobalHandle.ShowSignOutButton();
+
                 // Next page
                 this.Frame.Navigate(typeof(Views.UserInfomation));
             }

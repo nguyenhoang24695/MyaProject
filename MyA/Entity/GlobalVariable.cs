@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyA.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,8 @@ namespace MyA.Entity
     {
         public static string userEmail { get; set; }
         public static string userPassword { get; set; }
+
+        public static SplitView mySplit;
 
     }
 }

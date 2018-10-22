@@ -40,6 +40,7 @@ namespace MyA.Views
         private Token token;
         public UserInfomation()
         {
+            Services.SymbolColorChange.changeColorSymbol("AccountSymbol");
             GetUploadUrl();
             this.registerMember = new Member();
             this.token = new Token();
@@ -184,7 +185,7 @@ namespace MyA.Views
                 this.token.token = await GlobalHandle.checkToken();
                 Debug.WriteLine(this.token.token);
                 
-                var data = Services.APIHandle.UserInfomationHandle(this.token);
+                var data = Services.APIHandle.UserInfomationHandle(this.token.token);
                 var responseContent = data.Result.Content.ReadAsStringAsync().Result;
                 if ( data.Result.StatusCode == HttpStatusCode.Created)
                 {
@@ -195,11 +196,40 @@ namespace MyA.Views
                     phone.Text = currentMember.phone;
                     address.Text = currentMember.address;
                     ImageUrl.Text = currentMember.avatar;
+
+                    //check Gender
+                    switch (currentMember.gender)
+                    {
+                        case 1:
+                            Gender_Male.IsChecked = true;
+                            break;
+                        case 0:
+                            Gender_Female.IsChecked = true;
+                            break;
+                        case 2:
+                            Gender_Other.IsChecked = true;
+                            break;
+                        default:
+                            break;
+                    }
+
                     //show pic
-                    Uri u = new Uri(currentMember.avatar, UriKind.Absolute);
-                    Debug.WriteLine(u.AbsoluteUri);
-                    ImageUrl.Text = u.AbsoluteUri;
-                    MyAvatar.Source = new BitmapImage(u);
+                    Uri u;
+                    
+                    try
+                    {
+                        u = new Uri(currentMember.avatar, UriKind.Absolute);
+                        Debug.WriteLine(u.AbsoluteUri);
+                        ImageUrl.Text = u.AbsoluteUri;
+                        MyAvatar.Source = new BitmapImage(u);
+                    } catch (Exception error)
+                    {
+
+                    }
+                    
+                    
+                    
+                    
                     //add birthday into form
                     BirthDay.Date = DateTime.ParseExact(currentMember.birthday, "yyyy-MM-ddT00:00:00.000+0000", CultureInfo.InvariantCulture);
                 }
@@ -229,8 +259,7 @@ namespace MyA.Views
 
         private void SignOut(object sender, RoutedEventArgs e)
         {
-            GlobalHandle.deleteToken();
-            this.Frame.Navigate(typeof(Views.LoginForm));
+           Services.GlobalHandle.SignOutHandle(this.Frame);
         }
     }
 }
